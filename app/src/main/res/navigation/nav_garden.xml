@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_garden"
+            app:startDestination="@id/homeFragment">
+
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="top.xuqingquan.navigationtest.HomeFragment"
+            tools:layout="@layout/fragment_home"/>
+
+    <fragment
+            android:id="@+id/home_page"
+            android:name="top.xuqingquan.navigationtest.HomePageFragment"
+            tools:layout="@layout/fragment_home_page">
+        <action android:id="@+id/action_home_page_to_test1Fragment" app:destination="@id/test1Fragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/news_page"
+            android:name="top.xuqingquan.navigationtest.NewsPageFragment"
+            tools:layout="@layout/fragment_news_page"/>
+    <fragment
+            android:id="@+id/user_page"
+            android:name="top.xuqingquan.navigationtest.UserPageFragment"
+            tools:layout="@layout/fragment_user_page"/>
+
+    <fragment
+            android:id="@+id/test1Fragment"
+            android:name="top.xuqingquan.navigationtest.Test1Fragment"
+            tools:layout="@layout/fragment_test1">
+        <argument
+                android:name="from"
+                app:argType="string"/>
+        <action android:id="@+id/action_test1Fragment_to_test2Fragment" app:destination="@id/test2Fragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/test2Fragment"
+            android:name="top.xuqingquan.navigationtest.test2Fragment"
+            tools:layout="@layout/fragment_test2">
+        <deepLink android:id="@+id/deepLink" app:uri="navtest://xuqingquan.top/{user}"/>
+    </fragment>
+
+</navigation>
